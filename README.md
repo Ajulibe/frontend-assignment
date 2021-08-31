@@ -38,3 +38,4 @@ The main features that should be implemented
 
 [movieDB]: https://developers.themoviedb.org/3/getting-started/introduction
 [figma]: https://www.figma.com/file/KKkrDYSUAuRavpqRingRdZ/Movie-Grid?node-id=0%3A1
+# TimeScaleAssignment
