@@ -8,6 +8,9 @@ export const CardWidget = ({ item, onClick }) => {
       <CardPreview>
         {item.poster_path ? (
           <img
+            loading="lazy"
+            width={100}
+            height={100}
             src={`${config.IMAGE_BASE_URL}${item?.poster_path}`}
             alt={item.original_title}
           />
