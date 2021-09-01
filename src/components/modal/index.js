@@ -16,12 +16,21 @@ export const ModalForm = ({ modalData, isVisible, onClick }) => {
       <div className="content-container">
         <ModalTitle>
           <span>{modalData?.title}</span>
-          <img src={closeIcon} alt="close-icon" onClick={onClick} />
+          <img
+            width="24"
+            height="24"
+            src={closeIcon}
+            alt="close-icon"
+            onClick={onClick}
+          />
         </ModalTitle>
         <ModalDetails>
           <ModalImage>
             {modalData?.poster_path ? (
               <img
+                loading="lazy"
+                width="100"
+                height="100"
                 src={`${config.IMAGE_BASE_URL}${modalData?.poster_path}`}
                 alt={modalData?.original_title}
               />
