@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "../components/App";
 import "@testing-library/jest-dom/extend-expect";
@@ -64,7 +64,7 @@ describe("Testing App Component", () => {
 
   test("accepts search term", async () => {
     const inputEl = screen.getByTestId("search-input");
-    userEvent.type(inputEl, "cruella");
+    await waitFor(() => userEvent.type(inputEl, "cruella"));
     expect(screen.getByTestId("search-input")).toHaveValue("cruella");
     expect(screen.queryByTestId("error-message")).not.toBeInTheDocument();
   });
@@ -73,7 +73,7 @@ describe("Testing App Component", () => {
     const inputEl = screen.getByTestId("search-input");
     userEvent.type(inputEl, "cruella");
     const loading = screen.getByTestId("loading-icon");
-    expect(loading).toBeInTheDocument();
+    await waitFor(() => expect(loading).toBeInTheDocument());
   });
 
   test("renders Layout Component", () => {
