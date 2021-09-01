@@ -3,7 +3,7 @@ import { LogoWrapper } from "./style";
 import logo from "images/logo.svg";
 import { SearchBar } from "components/searchinput";
 
-export const Header = ({ handleChange }) => {
+const Header = ({ handleChange }) => {
   return (
     <LogoWrapper>
       <img width="154" height="40" src={logo} alt="Timescale" />
@@ -11,3 +11,5 @@ export const Header = ({ handleChange }) => {
     </LogoWrapper>
   );
 };
+
+export default Header;

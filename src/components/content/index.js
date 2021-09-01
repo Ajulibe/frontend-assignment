@@ -3,7 +3,7 @@ import { MovieWrapper, Title, FlexContainer, Empty } from "./style";
 import { CardWidget } from "../card";
 import { Spinner } from "../spinner";
 
-export const Content = ({ isLoading, data, isMounted, showModal }) => {
+const Content = ({ isLoading, data, isMounted, showModal }) => {
   return (
     <FlexContainer>
       <Title>Most Recent Movies</Title>
@@ -30,3 +30,5 @@ export const Content = ({ isLoading, data, isMounted, showModal }) => {
     </FlexContainer>
   );
 };
+
+export default Content;

@@ -1,10 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Suspense, lazy } from "react";
 import { Layout, Wrapper } from "./style";
 import { getMovies, getRecentMovies } from "api";
 import { debounce } from "lodash";
 import { ModalForm } from "../modal";
-import { Header } from "../header";
-import { Content } from "../content";
+import { Spinner } from "../spinner";
+
+//code-splitting for performance gains
+const Content = lazy(() => import("../content"));
+const Header = lazy(() => import("../header"));
 
 //Debounce is done outside of functional component to prevent recreating the function
 //on every re-render
@@ -93,14 +96,16 @@ export const AppLayout = () => {
       />
       <Layout data-testid="layout">
         <Wrapper>
-          <Header handleChange={handleChange} />
-          <Content
-            data-testid="content"
-            isLoading={isLoading}
-            data={movies}
-            showModal={showModal}
-            isMounted={isMounted}
-          />
+          <Suspense fallback={<Spinner />}>
+            <Header handleChange={handleChange} />
+            <Content
+              data-testid="content"
+              isLoading={isLoading}
+              data={movies}
+              showModal={showModal}
+              isMounted={isMounted}
+            />
+          </Suspense>
         </Wrapper>
       </Layout>
     </>
