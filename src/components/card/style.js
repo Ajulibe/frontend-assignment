@@ -12,6 +12,10 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
 
+  &:hover {
+    border: 2px solid ${COLORS.primary};
+  }
+
   @media only screen and (max-width: 651px) {
     width: 22rem;
     height: 30.8rem;
@@ -20,6 +24,10 @@ export const Card = styled.div`
   @media only screen and (max-width: 520px) {
     width: 45%;
     height: 26.8rem;
+
+    &:hover {
+      border: none;
+    }
   }
 
   @media only screen and (max-width: 430px) {
