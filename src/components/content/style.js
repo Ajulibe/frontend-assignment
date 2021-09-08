@@ -22,6 +22,12 @@ export const MovieWrapper = styled.div`
     max-width: 100%;
     justify-content: center;
   }
+
+  @media only screen and (max-width: 430px) {
+    .card {
+      margin-bottom: 2rem;
+    }
+  }
 `;
 
 export const FlexContainer = styled.div`
